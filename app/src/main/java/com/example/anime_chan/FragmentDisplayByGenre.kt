@@ -11,6 +11,7 @@ import javax.inject.Inject
 
 class FragmentDisplayByGenre : Fragment() {
 
+
     @Inject
     lateinit var viewModel: GenreViewModel
 

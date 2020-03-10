@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.anime_chan.adapter.GenreSearchAdapter
@@ -40,6 +42,9 @@ class FragmentGenreSearch : Fragment() {
 
         rv_genre_search.adapter = GenreSearchAdapter(model)
         rv_genre_search.layoutManager = GridLayoutManager(this.context, 2)
+        rv_genre_search.setOnClickListener {
+            Toast.makeText(this.context,"hi",Toast.LENGTH_SHORT).show()
+        }
 
         val intent = Intent(this.context, FragmentDisplayByGenre::class.java)
 
@@ -48,9 +53,6 @@ class FragmentGenreSearch : Fragment() {
     fun genreSelector() {
         btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
         btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
-
     }
-
-
 
 }

@@ -3,11 +3,13 @@ package com.example.anime_chan.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.anime_chan.FragmentDisplayByGenre
 import com.example.anime_chan.R
 import kotlinx.android.synthetic.main.genre_search_item.view.*
 
-class GenreSearchAdapter (private val model: List<String>) :
+class GenreSearchAdapter(private val model: List<String>) :
     RecyclerView.Adapter<GenreSearchAdapter.GenreViewHolder>() {
 //    val model: List<String> = CreateGenres().getGenreIds()
 
@@ -27,6 +29,18 @@ class GenreSearchAdapter (private val model: List<String>) :
 
     override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {
         holder.genreName.text = model[position]
+
+        holder.genreName.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                var fragment = FragmentDisplayByGenre()
+                val activity = v?.context as AppCompatActivity
+
+                activity.supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        })
     }
 
     class GenreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
