@@ -2,8 +2,6 @@ package com.example.anime_chan
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.anime_chan.di.DaggerGenreAdapterComponent
-import com.example.anime_chan.di.GenreAdapterModule
 
 class MainActivity : AppCompatActivity() {
     val manager = supportFragmentManager

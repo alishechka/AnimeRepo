@@ -12,9 +12,9 @@ interface JikanClient {
     // genre=anime/manga
     @GET("$ENDPOINT_SEARCH_GENRE/{type}/{genre_id}/{page}")
     fun searchByGenre(
-        @Path("type") type: String="manga",
-        @Path("genre_id") genre_id: Int=1,
-        @Path("page") page: Int=1
+        @Path("type") type: String = "manga",
+        @Path("genre_id") genre_id: Int = 1,
+        @Path("page") page: Int = 1
     ): Single<GenreSearchBase>
 
 

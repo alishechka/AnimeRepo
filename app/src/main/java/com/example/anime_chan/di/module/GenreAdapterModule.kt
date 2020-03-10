@@ -1,14 +1,14 @@
-package com.example.anime_chan.di
+package com.example.anime_chan.di.module
 
 import com.example.anime_chan.db.CreateGenres
+import com.example.anime_chan.di.ActivityScope
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 class GenreAdapterModule {
     @Provides
-    @Singleton
+    @ActivityScope
     fun getGenreSearchList(): List<String> {
         return CreateGenres().getGenreIds()
     }

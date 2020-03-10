@@ -1,8 +1,8 @@
-package com.example.anime_chan.network
+package com.example.anime_chan.repo
 
 import com.example.anime_chan.model.GenreSearchBase
 import io.reactivex.Single
 
 interface RemoteRepo {
-    fun getRepo(): Single<GenreSearchBase>
+    fun getGenreRepository(): Single<GenreSearchBase>
 }

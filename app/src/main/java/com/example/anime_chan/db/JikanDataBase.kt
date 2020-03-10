@@ -4,8 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.anime_chan.model.Manga
 
-@Database(entities = [GenreIdEntity::class], version = 1)
+@Database(entities = [GenreIdEntity::class, Manga::class], version = 1)
+@TypeConverters(
+    ListToObjectConverterGenres::class,
+    ListToObjectConverterAuthors::class,
+    ListToObjectConverterString::class
+)
 abstract class JikanDataBase : RoomDatabase() {
 
     abstract fun albumDao(): JikanDao
