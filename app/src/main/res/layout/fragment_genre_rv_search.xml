@@ -5,23 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_search_anime"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layour_btn_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="anime"
+        app:layout_constraintTop_toTopOf="parent">
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btn_search_anime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="anime"
 
-    <Button
-        android:id="@+id/btn_search_manga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="manga"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:hint="genre"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_search_manga"
+            app:layout_constraintStart_toEndOf="@id/btn_search_anime"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_search_manga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="manga"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

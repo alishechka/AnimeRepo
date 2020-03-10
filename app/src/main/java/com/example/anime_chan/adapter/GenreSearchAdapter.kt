@@ -1,12 +1,11 @@
-package com.example.anime_chan
+package com.example.anime_chan.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.anime_chan.db.CreateGenres
+import com.example.anime_chan.R
 import kotlinx.android.synthetic.main.genre_search_item.view.*
-import javax.inject.Inject
 
 class GenreSearchAdapter (private val model: List<String>) :
     RecyclerView.Adapter<GenreSearchAdapter.GenreViewHolder>() {

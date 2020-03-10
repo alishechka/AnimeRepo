@@ -1,6 +1,7 @@
 package com.example.anime_chan.di.module
 
 import androidx.lifecycle.ViewModelProvider
+import com.example.anime_chan.FragmentDisplayByGenre
 import com.example.anime_chan.FragmentGenreSearch
 import com.example.anime_chan.GenreViewModel
 import com.example.anime_chan.GenreViewModelFactory
@@ -15,7 +16,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class GenreViewModelModule(private val activity: FragmentGenreSearch) {
+class GenreViewModelModule(private val activity: FragmentDisplayByGenre) {
 
     @Provides
     @ActivityScope
