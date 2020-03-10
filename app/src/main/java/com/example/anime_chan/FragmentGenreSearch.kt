@@ -14,9 +14,10 @@ import com.example.anime_chan.di.component.DaggerGenreAdapterComponent
 import com.example.anime_chan.di.component.DaggerGenreViewModelComponent
 import com.example.anime_chan.di.module.GenreAdapterModule
 import kotlinx.android.synthetic.main.fragment_genre_rv_search.*
+import kotlinx.android.synthetic.main.fragment_genre_search_result.*
 import javax.inject.Inject
 
-class FragmentGenreSearch : Fragment() {
+class FragmentGenreSearch : Fragment(), onClickListener {
 
     @Inject
     lateinit var model: List<String>
@@ -40,7 +41,7 @@ class FragmentGenreSearch : Fragment() {
             .build().inject(this)
 
         val genre = genreSelector()
-        rv_genre_search.adapter = GenreSearchAdapter(model, genre)
+        rv_genre_search.adapter = GenreSearchAdapter(model, this)
         rv_genre_search.layoutManager = GridLayoutManager(this.context, 2)
 
         btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
@@ -66,6 +67,19 @@ class FragmentGenreSearch : Fragment() {
 //        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
 //        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
 
+    }
+
+    override fun itemClicked(position: Int) {
+        var fragment = FragmentDisplayByGenre()
+        val activity = this.activity
+
+        val bundle = Bundle()
+        bundle.putString("genre", tv_genre.text.toString())
+        bundle.putInt("genreId", position)
+        fragment.arguments = bundle
+
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.fragment_container, fragment)?.addToBackStack(null)?.commit()
     }
 
 }

@@ -8,9 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.anime_chan.FragmentDisplayByGenre
 import com.example.anime_chan.R
+import com.example.anime_chan.onClickListener
 import kotlinx.android.synthetic.main.genre_search_item.view.*
 
-class GenreSearchAdapter(private val model: List<String>, private val genre: String) :
+class GenreSearchAdapter(private val model: List<String>, private val itemClick:onClickListener) :
     RecyclerView.Adapter<GenreSearchAdapter.GenreViewHolder>() {
 //    val model: List<String> = CreateGenres().getGenreIds()
 
@@ -33,20 +34,7 @@ class GenreSearchAdapter(private val model: List<String>, private val genre: Str
 
         holder.genreName.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                var fragment = FragmentDisplayByGenre()
-                val activity = v?.context as AppCompatActivity
-
-                val genreId = position
-
-                val bundle = Bundle()
-                bundle.putString("genre", genre)
-                bundle.putInt("genreId", genreId)
-                fragment.arguments = bundle
-
-                activity.supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .addToBackStack(null)
-                    .commit()
+                itemClick.itemClicked(position)
             }
         })
     }

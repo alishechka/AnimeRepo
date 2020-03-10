@@ -38,7 +38,7 @@ class FragmentDisplayByGenre : Fragment() {
         if (bundle != null) {
             val genre = bundle.get("genre").toString()
             val genreId = bundle.get("genreId")
-            tv_test.text ="hello"
+            tv_test.text =genre
 
         }
 
