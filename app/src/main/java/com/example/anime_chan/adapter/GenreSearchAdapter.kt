@@ -1,5 +1,6 @@
 package com.example.anime_chan.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import com.example.anime_chan.FragmentDisplayByGenre
 import com.example.anime_chan.R
 import kotlinx.android.synthetic.main.genre_search_item.view.*
 
-class GenreSearchAdapter(private val model: List<String>) :
+class GenreSearchAdapter(private val model: List<String>, private val genre: String) :
     RecyclerView.Adapter<GenreSearchAdapter.GenreViewHolder>() {
 //    val model: List<String> = CreateGenres().getGenreIds()
 
@@ -34,6 +35,13 @@ class GenreSearchAdapter(private val model: List<String>) :
             override fun onClick(v: View?) {
                 var fragment = FragmentDisplayByGenre()
                 val activity = v?.context as AppCompatActivity
+
+                val genreId = position
+
+                val bundle = Bundle()
+                bundle.putString("genre", genre)
+                bundle.putInt("genreId", genreId)
+                fragment.arguments = bundle
 
                 activity.supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, fragment)

@@ -21,7 +21,6 @@ class FragmentGenreSearch : Fragment() {
     @Inject
     lateinit var model: List<String>
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,24 +34,38 @@ class FragmentGenreSearch : Fragment() {
 
         genreSelector()
 
+
         DaggerGenreAdapterComponent.builder()
             .genreAdapterModule(GenreAdapterModule())
             .build().inject(this)
 
-
-        rv_genre_search.adapter = GenreSearchAdapter(model)
+        val genre = genreSelector()
+        rv_genre_search.adapter = GenreSearchAdapter(model, genre)
         rv_genre_search.layoutManager = GridLayoutManager(this.context, 2)
-        rv_genre_search.setOnClickListener {
-            Toast.makeText(this.context,"hi",Toast.LENGTH_SHORT).show()
-        }
 
-        val intent = Intent(this.context, FragmentDisplayByGenre::class.java)
+        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
+        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
 
     }
 
-    fun genreSelector() {
-        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
-        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
+    fun genreSelector(): String {
+
+        when {
+            btn_search_anime.isPressed -> {
+                tv_genre.text = "anime"
+                return "anime"
+            }
+            btn_search_manga.isPressed -> {
+                tv_genre.text = "manga"
+                return "manga"
+            }
+            else -> {
+                return " "
+            }
+        }
+//        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
+//        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
+
     }
 
 }
