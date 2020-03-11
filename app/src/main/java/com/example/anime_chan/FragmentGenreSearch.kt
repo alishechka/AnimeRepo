@@ -40,32 +40,28 @@ class FragmentGenreSearch : Fragment(), onClickListener {
             .genreAdapterModule(GenreAdapterModule())
             .build().inject(this)
 
-        val genre = genreSelector()
         rv_genre_search.adapter = GenreSearchAdapter(model, this)
         rv_genre_search.layoutManager = GridLayoutManager(this.context, 2)
 
-        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
-        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
-
     }
 
-    fun genreSelector(): String {
+    fun genreSelector(){
 
-        when {
-            btn_search_anime.isPressed -> {
-                tv_genre.text = "anime"
-                return "anime"
-            }
-            btn_search_manga.isPressed -> {
-                tv_genre.text = "manga"
-                return "manga"
-            }
-            else -> {
-                return " "
-            }
-        }
-//        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
-//        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
+//        when {
+//            btn_search_anime.isPressed -> {
+//                tv_genre.text = "anime"
+//                return "anime"
+//            }
+//            btn_search_manga.isPressed -> {
+//                tv_genre.text = "manga"
+//                return "manga"
+//            }
+//            else -> {
+//                return " "
+//            }
+//        }
+        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
+        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
 
     }
 

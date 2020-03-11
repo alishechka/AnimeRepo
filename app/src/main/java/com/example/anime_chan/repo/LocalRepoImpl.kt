@@ -9,6 +9,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class LocalRepoImpl @Inject constructor(private val jikanDao: JikanDao) : LocalRepo {
+
     override fun getData(): Single<List<Manga>> {
         return jikanDao.getAllGenreManga()
             .subscribeOn(Schedulers.io())

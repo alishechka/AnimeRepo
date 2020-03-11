@@ -11,9 +11,8 @@ import com.example.anime_chan.R
 import com.example.anime_chan.onClickListener
 import kotlinx.android.synthetic.main.genre_search_item.view.*
 
-class GenreSearchAdapter(private val model: List<String>, private val itemClick:onClickListener) :
+class GenreSearchAdapter(private val model: List<String>, private val itemClick: onClickListener) :
     RecyclerView.Adapter<GenreSearchAdapter.GenreViewHolder>() {
-//    val model: List<String> = CreateGenres().getGenreIds()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreViewHolder {
         return GenreViewHolder(
