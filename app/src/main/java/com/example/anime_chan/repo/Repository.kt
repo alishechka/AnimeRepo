@@ -7,7 +7,7 @@ import io.reactivex.Single
 
 interface Repository {
 
-    fun makeRemoteCall(): Single<GenreSearchBase>
+    fun makeRemoteCall(genreId:String): Single<GenreSearchBase>
 
     fun addToLocalDatabase(mangaList: GenreSearchBase): Completable
 

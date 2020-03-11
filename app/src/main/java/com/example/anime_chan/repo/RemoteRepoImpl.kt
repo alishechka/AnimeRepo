@@ -11,8 +11,8 @@ import javax.inject.Inject
 class RemoteRepoImpl @Inject constructor(private val remoteRepoClient: JikanClient) :
     RemoteRepo {
 
-    override fun getGenreRepository(): Single<GenreSearchBase> {
-        return remoteRepoClient.searchByGenre()
+    override fun getGenreRepository(genreId:String): Single<GenreSearchBase> {
+        return remoteRepoClient.searchByGenre(genre_id = genreId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

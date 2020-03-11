@@ -5,5 +5,5 @@ import com.example.anime_chan.model.Manga
 import io.reactivex.Single
 
 interface RemoteRepo {
-    fun getGenreRepository(): Single<GenreSearchBase>
+    fun getGenreRepository(genreId:String): Single<GenreSearchBase>
 }

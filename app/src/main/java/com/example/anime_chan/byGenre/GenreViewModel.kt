@@ -14,8 +14,8 @@ class GenreViewModel(private val repo: Repository) : ViewModel() {
     private val albumLiveDataSuccess = MutableLiveData<GenreSearchBase>()
     private val errorObservable = MutableLiveData<String>()
 
-    fun getRepo(isConnected: Boolean) {
-        val observable = if (isConnected) repo.makeRemoteCall() else repo.getFromLocalDatabase()
+    fun getRepo(isConnected: Boolean,genreId:String) {
+        val observable = if (isConnected) repo.makeRemoteCall(genreId) else repo.getFromLocalDatabase()
         compositeDisposable.add(
             observable.subscribe(
                 { i -> albumLiveDataSuccess.value = i },

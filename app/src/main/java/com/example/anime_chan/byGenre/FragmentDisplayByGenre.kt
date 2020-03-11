@@ -45,9 +45,9 @@ class FragmentDisplayByGenre : Fragment() {
         val bundle = this.arguments
         if (bundle != null) {
             val genre = bundle.get("genre").toString()
-            val genreId = bundle.get("genreId")
+            val genreId = bundle.get("genreId").toString()
 
-            viewModel.getRepo(isConnectedToInternet())
+            viewModel.getRepo(isConnectedToInternet(),genreId)
             viewModel.getAlbumLiveDataSuccess().observe(viewLifecycleOwner, Observer {
                 rv_genre_search_result.adapter = GenreSearchResultAdapter(it)
                 rv_genre_search_result.layoutManager = LinearLayoutManager(this.context)
