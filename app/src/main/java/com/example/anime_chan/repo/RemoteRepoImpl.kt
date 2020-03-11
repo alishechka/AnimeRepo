@@ -1,7 +1,6 @@
 package com.example.anime_chan.repo
 
-import com.example.anime_chan.model.GenreSearchBase
-import com.example.anime_chan.model.Manga
+import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import com.example.anime_chan.network.JikanClient
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers

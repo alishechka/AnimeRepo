@@ -1,12 +1,11 @@
-package com.example.anime_chan.model
+package com.example.anime_chan.model.genreSearch
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.example.anime_chan.db.converter.ListToObjectConverterManga
 import com.google.gson.annotations.SerializedName
-@Entity(tableName = "MangeBase")
+@Entity(tableName = "MangaBase")
 data class GenreSearchBase(
 
     @SerializedName("request_hash") val request_hash: String,

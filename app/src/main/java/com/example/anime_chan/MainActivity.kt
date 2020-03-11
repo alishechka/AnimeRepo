@@ -2,7 +2,9 @@ package com.example.anime_chan
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.anime_chan.byGenre.FragmentGenreSearch
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     val manager = supportFragmentManager
@@ -10,15 +12,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val genreSearchFragment = FragmentGenreSearch()
+        val mangaSearchFragment = FragmentMangaSearch()
 
-        genreSearchFragment()
+        btn_genre_search.setOnClickListener { genreSearchFragment(genreSearchFragment) }
+        btn_manga_search.setOnClickListener { genreSearchFragment(mangaSearchFragment) }
 
 
     }
 
-    fun genreSearchFragment() {
+    fun genreSearchFragment(fragment: Fragment) {
         val transaction = manager.beginTransaction()
-        val fragment = FragmentGenreSearch()
 
         transaction.replace(R.id.fragment_container, fragment)
         transaction.addToBackStack(null)

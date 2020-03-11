@@ -1,11 +1,11 @@
-package com.example.anime_chan.model
+package com.example.anime_chan.model.genreSearch
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.example.anime_chan.db.converter.ListToObjectConverterAuthors
 import com.example.anime_chan.db.converter.ListToObjectConverterGenres
 import com.example.anime_chan.db.converter.ListToObjectConverterString
+import com.example.anime_chan.model.genreSearch.Authors
+import com.example.anime_chan.model.genreSearch.Genres
 import com.google.gson.annotations.SerializedName
 
 //@Entity(tableName = "Manga_table")

@@ -1,7 +1,7 @@
 package com.example.anime_chan.db.converter
 
 import androidx.room.TypeConverter
-import com.example.anime_chan.model.Manga
+import com.example.anime_chan.model.genreSearch.Manga
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

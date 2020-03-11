@@ -1,8 +1,8 @@
-package com.example.anime_chan.model
+package com.example.anime_chan.model.genreSearch
 
 import com.google.gson.annotations.SerializedName
 
-data class Genres (
+data class Authors (
 
     @SerializedName("mal_id") val mal_id : Int,
     @SerializedName("type") val type : String,

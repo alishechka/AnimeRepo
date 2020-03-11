@@ -5,8 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.anime_chan.R
-import com.example.anime_chan.model.GenreSearchBase
-import com.example.anime_chan.model.Manga
+import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.genre_search_result_item.view.*
 

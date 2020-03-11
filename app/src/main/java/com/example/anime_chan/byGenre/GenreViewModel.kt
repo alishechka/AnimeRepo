@@ -3,10 +3,8 @@ package com.example.anime_chan.byGenre
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.anime_chan.model.GenreSearchBase
-import com.example.anime_chan.model.Manga
+import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import com.example.anime_chan.repo.Repository
-import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 
 class GenreViewModel(private val repo: Repository) : ViewModel() {

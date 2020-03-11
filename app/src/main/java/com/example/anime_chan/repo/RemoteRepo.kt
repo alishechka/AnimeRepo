@@ -1,7 +1,6 @@
 package com.example.anime_chan.repo
 
-import com.example.anime_chan.model.GenreSearchBase
-import com.example.anime_chan.model.Manga
+import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import io.reactivex.Single
 
 interface RemoteRepo {

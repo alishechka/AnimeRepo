@@ -4,8 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.anime_chan.model.GenreSearchBase
-import com.example.anime_chan.model.Manga
+import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import io.reactivex.Completable
 import io.reactivex.Single
 
@@ -13,7 +12,7 @@ import io.reactivex.Single
 interface JikanDao {
 
     //need another one for Anime meh
-    @Query("SELECT*FROM MangeBase")
+    @Query("SELECT*FROM MangaBase")
     fun getAllGenreManga(): Single<GenreSearchBase>
 
 //    @Query("SELECT * FROM MangeBase WHERE manga=:mangaId")

@@ -5,19 +5,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.anime_chan.db.converter.ListToObjectConverterAuthors
-import com.example.anime_chan.db.converter.ListToObjectConverterGenres
-import com.example.anime_chan.db.converter.ListToObjectConverterManga
-import com.example.anime_chan.db.converter.ListToObjectConverterString
-import com.example.anime_chan.model.GenreSearchBase
-import com.example.anime_chan.model.Manga
+import com.example.anime_chan.db.converter.*
+import com.example.anime_chan.model.genreSearch.GenreSearchBase
 
 @Database(entities = [GenreIdEntity::class, GenreSearchBase::class], version = 1)
 @TypeConverters(
     ListToObjectConverterGenres::class,
     ListToObjectConverterAuthors::class,
     ListToObjectConverterString::class,
-    ListToObjectConverterManga::class
+    ListToObjectConverterManga::class,
+    ListToObjectConverterResults::class
 )
 abstract class JikanDataBase : RoomDatabase() {
 

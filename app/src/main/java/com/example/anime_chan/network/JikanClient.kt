@@ -1,10 +1,13 @@
 package com.example.anime_chan.network
 
 import com.example.anime_chan.ENDPOINT_SEARCH_GENRE
-import com.example.anime_chan.model.GenreSearchBase
+import com.example.anime_chan.ENDPOINT_SEARCH_MANGA
+import com.example.anime_chan.model.genreSearch.GenreSearchBase
+import com.example.anime_chan.model.mangaSearch.MangaSearchBase
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface JikanClient {
@@ -16,6 +19,9 @@ interface JikanClient {
         @Path("genre_id") genre_id: String,
         @Path("page") page: Int = 1
     ): Single<GenreSearchBase>
+
+    @GET(ENDPOINT_SEARCH_MANGA)
+    fun searchManga(@Query("q") search: String): Single<MangaSearchBase>
 
 
 }
