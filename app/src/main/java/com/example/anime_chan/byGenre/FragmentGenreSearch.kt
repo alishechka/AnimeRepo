@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.anime_chan.R
+import com.example.anime_chan.adapter.GenreSearchAdapter
 import com.example.anime_chan.di.component.DaggerGenreAdapterComponent
 import com.example.anime_chan.di.module.GenreAdapterModule
 import com.example.anime_chan.onClickListener
@@ -33,7 +35,9 @@ class FragmentGenreSearch : Fragment(), onClickListener {
         DaggerGenreAdapterComponent.builder()
             .genreAdapterModule(GenreAdapterModule())
             .build().inject(this)
-
+        
+        rv_genre_search.adapter = GenreSearchAdapter(model, this)
+        rv_genre_search.layoutManager = GridLayoutManager(this.context, 2)
     }
 
     fun genreSelector(){
