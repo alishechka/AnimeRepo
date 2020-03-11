@@ -1,10 +1,9 @@
 package com.example.anime_chan.di.module
 
 import androidx.lifecycle.ViewModelProvider
-import com.example.anime_chan.FragmentDisplayByGenre
-import com.example.anime_chan.FragmentGenreSearch
-import com.example.anime_chan.GenreViewModel
-import com.example.anime_chan.GenreViewModelFactory
+import com.example.anime_chan.byGenre.FragmentDisplayByGenre
+import com.example.anime_chan.byGenre.GenreViewModel
+import com.example.anime_chan.byGenre.GenreViewModelFactory
 import com.example.anime_chan.db.JikanDao
 import com.example.anime_chan.di.ActivityScope
 import com.example.anime_chan.network.JikanClient

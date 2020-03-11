@@ -1,4 +1,4 @@
-package com.example.anime_chan
+package com.example.anime_chan.byGenre
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

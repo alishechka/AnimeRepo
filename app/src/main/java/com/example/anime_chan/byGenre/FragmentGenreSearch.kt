@@ -1,20 +1,15 @@
-package com.example.anime_chan
+package com.example.anime_chan.byGenre
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.anime_chan.adapter.GenreSearchAdapter
+import com.example.anime_chan.R
 import com.example.anime_chan.di.component.DaggerGenreAdapterComponent
-import com.example.anime_chan.di.component.DaggerGenreViewModelComponent
 import com.example.anime_chan.di.module.GenreAdapterModule
+import com.example.anime_chan.onClickListener
 import kotlinx.android.synthetic.main.fragment_genre_rv_search.*
-import kotlinx.android.synthetic.main.fragment_genre_search_result.*
 import javax.inject.Inject
 
 class FragmentGenreSearch : Fragment(), onClickListener {
@@ -35,34 +30,15 @@ class FragmentGenreSearch : Fragment(), onClickListener {
 
         genreSelector()
 
-
         DaggerGenreAdapterComponent.builder()
             .genreAdapterModule(GenreAdapterModule())
             .build().inject(this)
 
-        rv_genre_search.adapter = GenreSearchAdapter(model, this)
-        rv_genre_search.layoutManager = GridLayoutManager(this.context, 2)
-
     }
 
     fun genreSelector(){
-
-//        when {
-//            btn_search_anime.isPressed -> {
-//                tv_genre.text = "anime"
-//                return "anime"
-//            }
-//            btn_search_manga.isPressed -> {
-//                tv_genre.text = "manga"
-//                return "manga"
-//            }
-//            else -> {
-//                return " "
-//            }
-//        }
         btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
         btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
-
     }
 
     override fun itemClicked(position: Int) {

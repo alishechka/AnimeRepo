@@ -1,4 +1,4 @@
-package com.example.anime_chan
+package com.example.anime_chan.byGenre
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -9,12 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.anime_chan.MyApp
+import com.example.anime_chan.R
 import com.example.anime_chan.adapter.GenreSearchResultAdapter
 import com.example.anime_chan.di.component.DaggerGenreViewModelComponent
 import com.example.anime_chan.di.module.GenreViewModelModule
-import com.example.anime_chan.model.Manga
 import kotlinx.android.synthetic.main.fragment_genre_search_result.*
 import javax.inject.Inject
 
@@ -56,11 +56,6 @@ class FragmentDisplayByGenre : Fragment() {
                 tv_error.text=it
             })
         }
-//        val m1= Manga(4,"ali","gg","df","ff","ff","s",5,44,2.5)
-//        val m2= Manga(44,"sjdjsdjs","gg","df","ff","ff","s",5,44,2.5)
-//        val m = listOf<Manga>(m1,m2)
-//        rv_genre_search_result.adapter = GenreSearchResultAdapter(m)
-//        rv_genre_search_result.layoutManager = LinearLayoutManager(this.context)
     }
 
     fun isConnectedToInternet(): Boolean {

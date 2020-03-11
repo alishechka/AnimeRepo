@@ -1,12 +1,9 @@
 package com.example.anime_chan.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.anime_chan.FragmentDisplayByGenre
 import com.example.anime_chan.R
 import com.example.anime_chan.onClickListener
 import kotlinx.android.synthetic.main.genre_search_item.view.*
