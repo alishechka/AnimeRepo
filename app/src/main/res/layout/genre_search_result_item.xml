@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="8dp"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,6 +24,17 @@
             android:layout_height="wrap_content"
             android:hint="super duper animation" />
 
+        <ImageView
+            android:id="@+id/iv_image"
+
+            android:layout_width="250dp"
+            android:layout_height="300dp" />
+
+        <TextView
+            android:id="@+id/tv_synopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="sdjsdjsdjsdjsjdhjsdhjsdhjsdhjsdh" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -3,15 +3,15 @@ package com.example.anime_chan.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.example.anime_chan.db.ListToObjectConverterAuthors
-import com.example.anime_chan.db.ListToObjectConverterGenres
-import com.example.anime_chan.db.ListToObjectConverterString
+import com.example.anime_chan.db.converter.ListToObjectConverterAuthors
+import com.example.anime_chan.db.converter.ListToObjectConverterGenres
+import com.example.anime_chan.db.converter.ListToObjectConverterString
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "Manga_table")
+//@Entity(tableName = "Manga_table")
 data class Manga(
 
-    @PrimaryKey
+//    @PrimaryKey
     @SerializedName("mal_id") val mal_id: Int,
     @SerializedName("url") val url: String,
     @SerializedName("title") val title: String,

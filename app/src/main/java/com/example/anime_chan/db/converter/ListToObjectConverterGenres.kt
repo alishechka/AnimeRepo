@@ -1,4 +1,4 @@
-package com.example.anime_chan.db
+package com.example.anime_chan.db.converter
 
 import androidx.room.TypeConverter
 import com.example.anime_chan.model.Authors
@@ -7,25 +7,25 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 
-class ListToObjectConverterAuthors {
+class ListToObjectConverterGenres {
 
     var gson = Gson()
 
-
-
     @TypeConverter
-    fun fromAuthorsList(value: List<Authors>): String {
+    fun fromGenresList(value: List<Genres>): String {
         val gson = Gson()
-        val type = object : TypeToken<List<Authors>>() {}.type
+        val type = object : TypeToken<List<Genres>>() {}.type
         return gson.toJson(value, type)
     }
 
     @TypeConverter
-    fun toAuthorsList(value: String): List<Authors> {
+    fun toGenresList(value: String): List<Genres> {
         val gson = Gson()
-        val type = object : TypeToken<List<Authors>>() {}.type
+        val type = object : TypeToken<List<Genres>>() {}.type
         return gson.fromJson(value, type)
     }
+
+
 
 
 }

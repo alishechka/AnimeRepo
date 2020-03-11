@@ -1,4 +1,4 @@
-package com.example.anime_chan.db
+package com.example.anime_chan.db.converter
 
 import androidx.room.TypeConverter
 import com.example.anime_chan.model.Authors

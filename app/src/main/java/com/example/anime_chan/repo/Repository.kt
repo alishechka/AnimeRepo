@@ -9,7 +9,7 @@ interface Repository {
 
     fun makeRemoteCall(): Single<GenreSearchBase>
 
-    fun addToLocalDatabase(mangaList: List<Manga>): Completable
+    fun addToLocalDatabase(mangaList: GenreSearchBase): Completable
 
-    fun getFromLocalDatabase(): Single<List<Manga>>
+    fun getFromLocalDatabase(): Single<GenreSearchBase>
 }

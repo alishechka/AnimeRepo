@@ -1,6 +1,7 @@
 package com.example.anime_chan.repo
 
 import com.example.anime_chan.db.JikanDao
+import com.example.anime_chan.model.GenreSearchBase
 import com.example.anime_chan.model.Manga
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -10,13 +11,13 @@ import javax.inject.Inject
 
 class LocalRepoImpl @Inject constructor(private val jikanDao: JikanDao) : LocalRepo {
 
-    override fun getData(): Single<List<Manga>> {
+    override fun getData(): Single<GenreSearchBase> {
         return jikanDao.getAllGenreManga()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    override fun addData(mangaList: List<Manga>): Completable {
+    override fun addData(mangaList: GenreSearchBase): Completable {
         return jikanDao.addManga(mangaList)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
