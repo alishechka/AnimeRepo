@@ -1,23 +1,20 @@
-package com.example.anime_chan
+package com.example.anime_chan.byMangaSearch
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.anime_chan.MyApp
+import com.example.anime_chan.R
 import com.example.anime_chan.adapter.MangaSearchAdapter
-import com.example.anime_chan.di.component.DaggerGenreViewModelComponent
 import com.example.anime_chan.di.component.DaggerMangaSearchViewModelComponent
-import com.example.anime_chan.di.module.GenreViewModelModule
 import com.example.anime_chan.di.module.MangaSearchViewModelModule
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_manga_search.*
 import javax.inject.Inject
 
@@ -52,7 +49,6 @@ class FragmentMangaSearch : Fragment() {
 
         viewModel.getErrorObservable().observe(viewLifecycleOwner,Observer{
             tv_error_manga.text=it
-//            Log.i(TAG,it)
         })
 
     }

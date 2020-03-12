@@ -1,4 +1,4 @@
-package com.example.anime_chan
+package com.example.anime_chan.byMangaSearch
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -3,19 +3,19 @@ package com.example.anime_chan
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import com.example.anime_chan.model.mangaSearch.MangaSearchBase
-import com.example.anime_chan.repo2.Repository2
+import com.example.anime_chan.model.seasonLater.SeasonLaterBase
+import com.example.anime_chan.repo3.Repository3
 import io.reactivex.disposables.CompositeDisposable
 
-class MangaSearchViewModel(private val repo: Repository2) : ViewModel() {
+class SeasonLaterViewModel(private val repo: Repository3) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
-    private val albumLiveDataSuccess = MutableLiveData<MangaSearchBase>()
+    private val albumLiveDataSuccess = MutableLiveData<SeasonLaterBase>()
     private val errorObservable = MutableLiveData<String>()
 
-    fun getRepo(isConnected: Boolean,searchText:String) {
-        val observable = if (isConnected) repo.makeRemoteCall(searchText) else repo.getFromLocalDatabase()
+    fun getRepo(isConnected: Boolean) {
+        val observable = if (isConnected) repo.makeRemoteCall() else repo.getFromLocalDatabase()
         compositeDisposable.add(
             observable.subscribe(
                 { i -> albumLiveDataSuccess.value = i },
@@ -25,8 +25,9 @@ class MangaSearchViewModel(private val repo: Repository2) : ViewModel() {
 
     }
 
-    fun getAlbumLiveDataSuccess(): LiveData<MangaSearchBase> = albumLiveDataSuccess
+    fun getAlbumLiveDataSuccess(): LiveData<SeasonLaterBase> = albumLiveDataSuccess
     fun getErrorObservable(): LiveData<String> = errorObservable
+
     override fun onCleared() {
         compositeDisposable.clear()
         super.onCleared()

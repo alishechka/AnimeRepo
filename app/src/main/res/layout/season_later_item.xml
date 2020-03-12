@@ -5,8 +5,6 @@
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true">
 
-
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +18,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tv_manga_search_result"
+            android:id="@+id/tv_title_season_later"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Supernatural test"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tv_synopsis_season_later"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Supernatural test"

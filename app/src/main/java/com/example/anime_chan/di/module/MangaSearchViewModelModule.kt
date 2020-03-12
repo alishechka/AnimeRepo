@@ -1,9 +1,9 @@
 package com.example.anime_chan.di.module
 
 import androidx.lifecycle.ViewModelProvider
-import com.example.anime_chan.FragmentMangaSearch
-import com.example.anime_chan.MangaSearchViewModel
-import com.example.anime_chan.MangaSearchViewModelFactory
+import com.example.anime_chan.byMangaSearch.FragmentMangaSearch
+import com.example.anime_chan.byMangaSearch.MangaSearchViewModel
+import com.example.anime_chan.byMangaSearch.MangaSearchViewModelFactory
 import com.example.anime_chan.db.JikanDao2
 import com.example.anime_chan.di.ActivityScope
 import com.example.anime_chan.network.JikanClient
@@ -26,7 +26,9 @@ class MangaSearchViewModelModule(private val activity: FragmentMangaSearch) {
     @Provides
     @ActivityScope
     fun provideFactory(repository: Repository2): MangaSearchViewModelFactory {
-        return MangaSearchViewModelFactory(repository)
+        return MangaSearchViewModelFactory(
+            repository
+        )
     }
 
     @Provides

@@ -9,7 +9,7 @@ import com.example.anime_chan.db.converter.*
 import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import com.example.anime_chan.model.mangaSearch.MangaSearchBase
 
-@Database(entities = [MangaSearchBase::class], version = 2)
+@Database(entities = [MangaSearchBase::class], version = 1)
 @TypeConverters(
 
     ListToObjectConverterResults::class
@@ -31,7 +31,7 @@ abstract class JikanDataBase2 : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         JikanDataBase2::class.java,
-                        "Jikan_Database"
+                        "Jikan_Database2"
                     ).fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance

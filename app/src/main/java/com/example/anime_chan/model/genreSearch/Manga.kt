@@ -27,6 +27,7 @@ data class Manga(
 
     @TypeConverters(ListToObjectConverterAuthors::class)
     @SerializedName("authors") val authors: List<Authors>,
+
     @SerializedName("score") val score: Double,
 
     @TypeConverters(ListToObjectConverterString::class)

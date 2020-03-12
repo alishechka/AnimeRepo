@@ -5,26 +5,26 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.anime_chan.db.converter.*
-import com.example.anime_chan.model.genreSearch.GenreSearchBase
-import com.example.anime_chan.model.mangaSearch.MangaSearchBase
+import com.example.anime_chan.db.converter.ListToObjectConverterAnime
+import com.example.anime_chan.db.converter.ListToObjectConverterGenres
+import com.example.anime_chan.db.converter.ListToObjectConverterString
+import com.example.anime_chan.model.seasonLater.SeasonLaterBase
 
-@Database(entities = [GenreSearchBase::class], version = 1)
+@Database(entities = [SeasonLaterBase::class], version = 1)
 @TypeConverters(
+    ListToObjectConverterAnime::class,
     ListToObjectConverterGenres::class,
-    ListToObjectConverterAuthors::class,
-    ListToObjectConverterString::class,
-    ListToObjectConverterManga::class
+    ListToObjectConverterString::class
 )
-abstract class JikanDataBase : RoomDatabase() {
+abstract class JikanDataBase3 : RoomDatabase() {
 
-    abstract fun albumDao(): JikanDao
+    abstract fun albumDao(): JikanDao3
 
     companion object {
         @Volatile
-        private var INSTANCE: JikanDataBase? = null
+        private var INSTANCE: JikanDataBase3? = null
 
-        fun getInstance(context: Context): JikanDataBase {
+        fun getInstance(context: Context): JikanDataBase3 {
             synchronized(this) {
                 var instance =
                     INSTANCE
@@ -32,8 +32,8 @@ abstract class JikanDataBase : RoomDatabase() {
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        JikanDataBase::class.java,
-                        "Jikan_Database"
+                        JikanDataBase3::class.java,
+                        "Jikan_Database3"
                     ).fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance

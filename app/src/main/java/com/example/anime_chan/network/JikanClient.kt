@@ -2,8 +2,10 @@ package com.example.anime_chan.network
 
 import com.example.anime_chan.ENDPOINT_SEARCH_GENRE
 import com.example.anime_chan.ENDPOINT_SEARCH_MANGA
+import com.example.anime_chan.ENDPOINT_SEASON_LATER
 import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import com.example.anime_chan.model.mangaSearch.MangaSearchBase
+import com.example.anime_chan.model.seasonLater.SeasonLaterBase
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -23,5 +25,7 @@ interface JikanClient {
     @GET(ENDPOINT_SEARCH_MANGA)
     fun searchManga(@Query("q") search: String): Single<MangaSearchBase>
 
+    @GET(ENDPOINT_SEASON_LATER)
+    fun getSeasonLater(): Single<SeasonLaterBase>
 
 }
