@@ -34,5 +34,4 @@ class GenreViewModelModule(private val activity: FragmentDisplayByGenre) {
     fun getGenreViewModel(genreViewModelFactory: GenreViewModelFactory): GenreViewModel {
         return ViewModelProvider(activity, genreViewModelFactory).get(GenreViewModel::class.java)
     }
-
 }

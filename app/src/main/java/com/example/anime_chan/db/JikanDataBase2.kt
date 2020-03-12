@@ -9,22 +9,20 @@ import com.example.anime_chan.db.converter.*
 import com.example.anime_chan.model.genreSearch.GenreSearchBase
 import com.example.anime_chan.model.mangaSearch.MangaSearchBase
 
-@Database(entities = [GenreIdEntity::class, GenreSearchBase::class], version = 2)
+@Database(entities = [MangaSearchBase::class], version = 2)
 @TypeConverters(
-    ListToObjectConverterGenres::class,
-    ListToObjectConverterAuthors::class,
-    ListToObjectConverterString::class,
-    ListToObjectConverterManga::class
-)
-abstract class JikanDataBase : RoomDatabase() {
 
-    abstract fun albumDao(): JikanDao
+    ListToObjectConverterResults::class
+)
+abstract class JikanDataBase2 : RoomDatabase() {
+
+    abstract fun albumDao(): JikanDao2
 
     companion object {
         @Volatile
-        private var INSTANCE: JikanDataBase? = null
+        private var INSTANCE: JikanDataBase2? = null
 
-        fun getInstance(context: Context): JikanDataBase {
+        fun getInstance(context: Context): JikanDataBase2 {
             synchronized(this) {
                 var instance =
                     INSTANCE
@@ -32,7 +30,7 @@ abstract class JikanDataBase : RoomDatabase() {
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        JikanDataBase::class.java,
+                        JikanDataBase2::class.java,
                         "Jikan_Database"
                     ).fallbackToDestructiveMigration()
                         .build()

@@ -7,13 +7,12 @@ import com.example.anime_chan.db.converter.ListToObjectConverterManga
 import com.google.gson.annotations.SerializedName
 @Entity(tableName = "MangaBase")
 data class GenreSearchBase(
-
     @SerializedName("request_hash") val request_hash: String,
     @SerializedName("request_cached") val request_cached: Boolean,
     @SerializedName("request_cache_expiry") val request_cache_expiry: Int,
 //    @SerializedName("mal_url") val mal_url: Mal_url,
-    @SerializedName("item_count") val item_count: Int,
     @PrimaryKey
+    @SerializedName("item_count") val item_count: Int,
     @TypeConverters(ListToObjectConverterManga::class)
     @SerializedName("manga") val manga: List<Manga>
 )

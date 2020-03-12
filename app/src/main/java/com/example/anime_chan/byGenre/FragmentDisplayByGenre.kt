@@ -47,13 +47,13 @@ class FragmentDisplayByGenre : Fragment() {
             val genre = bundle.get("genre").toString()
             val genreId = bundle.get("genreId").toString()
 
-            viewModel.getRepo(isConnectedToInternet(),genreId)
+            viewModel.getRepo(isConnectedToInternet(), genreId)
             viewModel.getAlbumLiveDataSuccess().observe(viewLifecycleOwner, Observer {
                 rv_genre_search_result.adapter = GenreSearchResultAdapter(it)
                 rv_genre_search_result.layoutManager = LinearLayoutManager(this.context)
             })
             viewModel.getErrorObservable().observe(viewLifecycleOwner, Observer {
-                tv_error.text=it
+                tv_error.text = it
             })
         }
     }
@@ -62,9 +62,5 @@ class FragmentDisplayByGenre : Fragment() {
         val cm = activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
         return activeNetwork?.isConnectedOrConnecting == true
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 }
