@@ -6,15 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.anime_chan.db.converter.ListToObjectConverterAnime
-import com.example.anime_chan.db.converter.ListToObjectConverterGenres
-import com.example.anime_chan.db.converter.ListToObjectConverterString
 import com.example.anime_chan.model.seasonLater.SeasonLaterBase
 
-@Database(entities = [SeasonLaterBase::class], version = 1)
+@Database(entities = [SeasonLaterBase::class], version = 2)
 @TypeConverters(
-    ListToObjectConverterAnime::class,
-    ListToObjectConverterGenres::class,
-    ListToObjectConverterString::class
+    ListToObjectConverterAnime::class
 )
 abstract class JikanDataBase3 : RoomDatabase() {
 

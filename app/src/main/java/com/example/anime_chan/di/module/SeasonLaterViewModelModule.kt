@@ -1,9 +1,9 @@
 package com.example.anime_chan.di.module
 
 import androidx.lifecycle.ViewModelProvider
-import com.example.anime_chan.FragmentSeasonLater
-import com.example.anime_chan.SeasonLaterViewModel
-import com.example.anime_chan.SeasonLaterViewModelFactory
+import com.example.anime_chan.bySeasonLater.FragmentSeasonLater
+import com.example.anime_chan.bySeasonLater.SeasonLaterViewModel
+import com.example.anime_chan.bySeasonLater.SeasonLaterViewModelFactory
 import com.example.anime_chan.db.JikanDao3
 import com.example.anime_chan.di.ActivityScope
 import com.example.anime_chan.network.JikanClient
@@ -26,7 +26,9 @@ class SeasonLaterViewModelModule(private val activity: FragmentSeasonLater) {
     @Provides
     @ActivityScope
     fun provideFactory(repository: Repository3): SeasonLaterViewModelFactory {
-        return SeasonLaterViewModelFactory(repository)
+        return SeasonLaterViewModelFactory(
+            repository
+        )
     }
 
     @Provides

@@ -1,4 +1,4 @@
-package com.example.anime_chan
+package com.example.anime_chan.bySeasonLater
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.anime_chan.di.component.AppComponent
+import com.example.anime_chan.MyApp
+import com.example.anime_chan.R
+import com.example.anime_chan.adapter.SeasonLaterAdapter
 import com.example.anime_chan.di.component.DaggerSeasonLaterViewModelComponent
 import com.example.anime_chan.di.module.SeasonLaterViewModelModule
 import kotlinx.android.synthetic.main.fragment_season_later.*
@@ -39,7 +41,8 @@ class FragmentSeasonLater : Fragment() {
         viewModel.getRepo(isConnectedToInternet())
 
         viewModel.getAlbumLiveDataSuccess().observe(viewLifecycleOwner, Observer {
-            rv_season_later.adapter = SeasonLaterAdapter(it)
+            rv_season_later.adapter =
+                SeasonLaterAdapter(it)
             rv_season_later.layoutManager = LinearLayoutManager(this.context)
         })
         viewModel.getErrorObservable().observe(viewLifecycleOwner, Observer {

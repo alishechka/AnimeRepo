@@ -30,8 +30,6 @@ class FragmentGenreSearch : Fragment(), onClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        genreSelector()
-
         DaggerGenreAdapterComponent.builder()
             .genreAdapterModule(GenreAdapterModule())
             .build().inject(this)
@@ -40,17 +38,11 @@ class FragmentGenreSearch : Fragment(), onClickListener {
         rv_genre_search.layoutManager = GridLayoutManager(this.context, 2)
     }
 
-    fun genreSelector() {
-        btn_search_anime.setOnClickListener { tv_genre.text = "anime" }
-        btn_search_manga.setOnClickListener { tv_genre.text = "manga" }
-    }
-
     override fun itemClicked(position: Int) {
         var fragment = FragmentDisplayByGenre()
         val activity = this.activity
         val bundle = Bundle()
         //+1 for position to make it start at 1 and not index 0
-        bundle.putString("genre", tv_genre.text.toString())
         bundle.putString("genreId", (position + 1).toString())
         fragment.arguments = bundle
 

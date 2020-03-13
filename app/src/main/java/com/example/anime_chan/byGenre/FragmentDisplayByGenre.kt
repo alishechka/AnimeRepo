@@ -44,7 +44,6 @@ class FragmentDisplayByGenre : Fragment() {
 
         val bundle = this.arguments
         if (bundle != null) {
-            val genre = bundle.get("genre").toString()
             val genreId = bundle.get("genreId").toString()
 
             viewModel.getRepo(isConnectedToInternet(), genreId)

@@ -1,4 +1,4 @@
-package com.example.anime_chan
+package com.example.anime_chan.bySeasonLater
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

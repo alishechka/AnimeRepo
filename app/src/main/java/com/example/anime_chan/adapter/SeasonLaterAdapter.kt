@@ -1,9 +1,10 @@
-package com.example.anime_chan
+package com.example.anime_chan.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.anime_chan.R
 import com.example.anime_chan.model.seasonLater.SeasonLaterBase
 import kotlinx.android.synthetic.main.season_later_item.view.*
 

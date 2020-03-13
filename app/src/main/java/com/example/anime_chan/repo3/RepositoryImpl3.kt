@@ -11,11 +11,13 @@ class RepositoryImpl3(private val remoteRepo: RemoteRepo3, private val localRepo
     override fun makeRemoteCall(): Single<SeasonLaterBase> {
         return remoteRepo.getSeasonLaterRepository()
             .doOnSuccess { i -> addToLocalDatabase(i) }
+            .doOnError { getFromLocalDatabase() }
 
     }
 
     override fun addToLocalDatabase(seasonLater: SeasonLaterBase): Completable {
         return localRepo.addData(seasonLater)
+
     }
 
     override fun getFromLocalDatabase(): Single<SeasonLaterBase> {

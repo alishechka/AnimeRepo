@@ -14,7 +14,7 @@ import io.reactivex.Single
 interface JikanDao3 {
 
     //need another one for Anime meh
-    @Query("SELECT*FROM Season_Later")
+    @Query("SELECT * FROM Season_Later")
     fun getAllSeasonLaterSearch(): Single<SeasonLaterBase>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
